@@ -1,0 +1,261 @@
+/*
+ * NESTLY AI – Modern Fintech Design System
+ * Design Movement: Clean, Inviting, Professional SaaS
+ * Color Philosophy: Soft off-white base (#F8FAFC) with green gradient (#3ECF8E to #2FBF9B)
+ * Typography: Bricolage Grotesque (display) + Geist (UI/body)
+ * Theme: Light — clean, modern, professional fintech aesthetic
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Nestly Brand Tokens */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Geist', sans-serif;
+  --nestly-green-light: #3ECF8E;
+  --nestly-green-dark: #2FBF9B;
+  --nestly-bg-light: #F8FAFC;
+  --nestly-bg-section: #F1F5F9;
+  --nestly-text-dark: #0F172A;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Light theme — Nestly Modern Fintech */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #3ECF8E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #E2E8F0;
+  --muted-foreground: #64748B;
+  --accent: #3ECF8E;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #F1F5F9;
+  --ring: #3ECF8E;
+  --chart-1: #3ECF8E;
+  --chart-2: #2FBF9B;
+  --chart-3: #06B6D4;
+  --chart-4: #8B5CF6;
+  --chart-5: #EC4899;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #3ECF8E;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #3ECF8E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Nestly Card with soft shadow */
+  .nestly-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .nestly-card-hover {
+    transition: all 0.2s ease;
+  }
+
+  .nestly-card-hover:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(15, 23, 42, 0.06);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text with Nestly green */
+  .gradient-text {
+    background: linear-gradient(135deg, #3ECF8E 0%, #2FBF9B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Nestly primary button with green gradient */
+  .btn-primary {
+    background: linear-gradient(135deg, #3ECF8E 0%, #2FBF9B 100%);
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body), sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(62, 207, 142, 0.25);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 20px rgba(62, 207, 142, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* Nestly secondary button */
+  .btn-secondary {
+    background: #F1F5F9;
+    color: #0F172A;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body), sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #E2E8F0;
+    border-color: #CBD5E1;
+    transform: translateY(-1px);
+  }
+
+  /* Nestly badge */
+  .nestly-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    background: linear-gradient(135deg, #3ECF8E15 0%, #2FBF9B15 100%);
+    border: 1px solid #3ECF8E40;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2FBF9B;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-family: var(--font-body), sans-serif;
+  }
+
+  /* Stat number */
+  .stat-number {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  /* Section with light background */
+  .section-light {
+    background: #F1F5F9;
+  }
+
+  /* Soft shadow utility */
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .shadow-soft-lg {
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(15, 23, 42, 0.06);
+  }
+}
